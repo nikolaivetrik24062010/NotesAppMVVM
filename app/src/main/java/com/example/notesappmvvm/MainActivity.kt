@@ -1,5 +1,6 @@
 package com.example.notesappmvvm
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -14,6 +15,7 @@ import com.example.notesappmvvm.navigation.NotesNavHost
 import com.example.notesappmvvm.ui.theme.NotesAppMVVMTheme
 
 class MainActivity : ComponentActivity() {
+    @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
