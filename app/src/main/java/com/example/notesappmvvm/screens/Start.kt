@@ -2,7 +2,6 @@ package com.example.notesappmvvm.screens
 
 import android.annotation.SuppressLint
 import android.app.Application
-import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
@@ -73,7 +72,7 @@ fun StartScreen(navController: NavHostController, viewModel: MainViewModel) {
                             LOGIN = login
                             PASSWORD = password
                             viewModel.initDatabase(TYPE_FIREBASE) {
-                                Log.d("checkData","Auth success")
+                                navController.navigate(NavRoute.Main.route)
                             }
                         }, enabled = login.isNotEmpty() && password.isNotEmpty()
                     ) {
