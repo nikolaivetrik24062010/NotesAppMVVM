@@ -33,7 +33,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun NoteScreen(navController: NavHostController, viewModel: MainViewModel, noteId: String?) {
     val notes = viewModel.readAllNotes().observeAsState(listOf()).value
-    val note = when (DB_TYPE) {
+    val note = when (DB_TYPE.value) {
         TYPE_ROOM -> {
             notes.firstOrNull { it.id == noteId?.toInt() } ?: Note()
         }
@@ -43,7 +43,7 @@ fun NoteScreen(navController: NavHostController, viewModel: MainViewModel, noteI
         else -> Note()
     }
     val bottomSheetState =
-        rememberModalBottomSheetState(initialValue = ModalBottomSheetValue.Hidden)
+        rememberModalBottomSheetState(ModalBottomSheetValue.Hidden)
     val coroutineScope = rememberCoroutineScope()
     var title by remember {
         mutableStateOf(Constants.Keys.EMPTY)
